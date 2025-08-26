@@ -1,0 +1,59 @@
+<section class="grid">
+	<div class="card">
+		<h3>Today</h3>
+		<ul>
+			<li>Orders: <strong id="today-orders"><%= daily.orders %></strong></li>
+			<li>Deliveries: <strong id="today-deliveries"><%= daily.deliveries %></strong></li>
+			<li>Pendings: <strong id="today-pendings"><%= daily.pendings %></strong></li>
+		</ul>
+	</div>
+	<div class="card">
+		<h3>This Month</h3>
+		<ul>
+			<li>Orders: <strong><%= monthly.orders %></strong></li>
+			<li>Deliveries: <strong><%= monthly.deliveries %></strong></li>
+			<li>Pendings: <strong><%= monthly.pendings %></strong></li>
+			<li>Revenue: <strong>$<%= monthly.revenue %></strong></li>
+			<li>Cost: <strong>$<%= monthly.cost %></strong></li>
+		</ul>
+	</div>
+</section>
+<section class="grid">
+	<div class="card">
+		<h3>Orders vs Deliveries</h3>
+		<canvas id="ordersDeliveriesChart" height="120"></canvas>
+	</div>
+	<div class="card">
+		<h3>Revenue vs Cost</h3>
+		<canvas id="revCostChart" height="120"></canvas>
+	</div>
+</section>
+<script>
+window.addEventListener('DOMContentLoaded', async () => {
+	const res = await fetch('/api/reports/summary');
+	const data = await res.json();
+	const labels = data.monthly.labels;
+	const orders = data.monthly.orders;
+	const deliveries = data.monthly.deliveries;
+	const costs = data.monthly.costs;
+	const revenues = data.monthly.revenues;
+
+	new Chart(document.getElementById('ordersDeliveriesChart'), {
+		type: 'line',
+		data: { labels, datasets: [
+			{ label: 'Orders', data: orders, borderColor: '#2563eb', fill: false },
+			{ label: 'Deliveries', data: deliveries, borderColor: '#16a34a', fill: false }
+		]},
+		options: { responsive: true, maintainAspectRatio: false }
+	});
+
+	new Chart(document.getElementById('revCostChart'), {
+		type: 'bar',
+		data: { labels, datasets: [
+			{ label: 'Revenue', data: revenues, backgroundColor: 'rgba(99,102,241,0.6)' },
+			{ label: 'Cost', data: costs, backgroundColor: 'rgba(239,68,68,0.6)' }
+		]},
+		options: { responsive: true, maintainAspectRatio: false }
+	});
+});
+</script>

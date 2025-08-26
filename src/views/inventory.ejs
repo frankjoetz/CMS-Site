@@ -1,0 +1,21 @@
+<section class="card">
+	<h2><%= title %></h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>SKU</th>
+				<th>Name</th>
+				<th>Stock</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% items.forEach(it => { %>
+			<tr>
+				<td><%= it.sku %></td>
+				<td><%= it.name %></td>
+				<td><%= it.stock %></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+</section>

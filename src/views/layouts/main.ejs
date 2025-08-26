@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= typeof title !== 'undefined' ? title + ' — ' : '' %>Inventory & Action Plans</title>
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<header class="topbar">
+		<h1>Inventory & Action Plans</h1>
+		<nav>
+			<a href="/">Dashboard</a>
+			<a href="/equipment">Equipment</a>
+			<a href="/pendings">Pendings</a>
+			<a href="/suppliers">Suppliers</a>
+			<a href="/products">Products</a>
+			<a href="/inventory">Inventory</a>
+			<a href="/purchase-orders">Purchase Orders</a>
+			<a href="/delivery-notes">Delivery Notes</a>
+		</nav>
+	</header>
+	<main class="container">
+		<%- body %>
+	</main>
+	<footer class="footer">© <%= new Date().getFullYear() %></footer>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="/js/main.js"></script>
+</body>
+</html>
