@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" class="card">
+	<div class="row">
+		<div>
+			<label>Delivery Date</label>
+			<input type="date" name="delivery_date">
+		</div>
+		<div>
+			<label>Purchase Order</label>
+			<select name="purchase_order_id">
+				<option value="">--</option>
+				{% for po in pos %}
+				<option value="{{ po.id }}">PO #{{ po.id }} - {{ po.supplier.name if po.supplier else '' }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div>
+			<label>Notes</label>
+			<input name="notes">
+		</div>
+	</div>
+	<div class="mt-3">
+		<button class="btn" type="submit">Save</button>
+		<a href="/delivery-notes" class="btn secondary">Cancel</a>
+	</div>
+</form>
+{% endblock %}

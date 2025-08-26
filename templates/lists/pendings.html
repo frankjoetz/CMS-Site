@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-end mb-2"><a href="/pendings/new" class="btn">New Pending</a></div>
+<table class="table">
+	<thead><tr><th>Title</th><th>Status</th><th>Due</th><th>Description</th></tr></thead>
+	<tbody>
+		{% for p in pendings %}
+		<tr>
+			<td>{{ p.title }}</td>
+			<td>{{ p.status }}</td>
+			<td>{{ p.due_date or '' }}</td>
+			<td>{{ p.description or '' }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

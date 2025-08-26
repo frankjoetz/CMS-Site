@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-end mb-2"><a href="/inventory/new" class="btn">New Inventory Item</a></div>
+<table class="table">
+	<thead><tr><th>Product</th><th>On Hand</th><th>Reorder Level</th><th>Status</th></tr></thead>
+	<tbody>
+		{% for i in items %}
+		<tr>
+			<td>{{ i.product.name }}</td>
+			<td>{{ i.quantity_on_hand }}</td>
+			<td>{{ i.reorder_level }}</td>
+			<td>{% if i.quantity_on_hand <= i.reorder_level %}<span style="color:#dc2626">Low</span>{% else %}<span style="color:#16a34a">OK</span>{% endif %}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

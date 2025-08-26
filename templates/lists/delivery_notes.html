@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-end mb-2"><a href="/delivery-notes/new" class="btn">New Delivery Note</a></div>
+<table class="table">
+	<thead><tr><th>ID</th><th>Date</th><th>PO</th><th>Notes</th></tr></thead>
+	<tbody>
+		{% for d in dns %}
+		<tr>
+			<td>{{ d.id }}</td>
+			<td>{{ d.delivery_date }}</td>
+			<td>{{ d.purchase_order_id }}</td>
+			<td>{{ d.notes or '' }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

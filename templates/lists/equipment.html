@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-end mb-2"><a href="/equipment/new" class="btn">New Equipment</a></div>
+<table class="table">
+	<thead><tr><th>Name</th><th>Serial</th><th>Status</th></tr></thead>
+	<tbody>
+		{% for e in equipment %}
+		<tr><td>{{ e.name }}</td><td>{{ e.serial_number or '' }}</td><td>{{ e.status }}</td></tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
