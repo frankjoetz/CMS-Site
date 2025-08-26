@@ -1,0 +1,23 @@
+<section class="card">
+	<h2><%= title %></h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>DN #</th>
+				<th>Supplier</th>
+				<th>Received At</th>
+				<th>Items</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% items.forEach(it => { %>
+			<tr>
+				<td><%= it.dn_no %></td>
+				<td><%= it.supplier_name || '-' %></td>
+				<td><%= it.received_at %></td>
+				<td><%= it.total_items %></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+</section>

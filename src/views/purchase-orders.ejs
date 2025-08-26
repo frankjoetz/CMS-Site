@@ -1,0 +1,25 @@
+<section class="card">
+	<h2><%= title %></h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Order #</th>
+				<th>Supplier</th>
+				<th>Status</th>
+				<th>Ordered At</th>
+				<th>Items</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% items.forEach(it => { %>
+			<tr>
+				<td><%= it.order_no %></td>
+				<td><%= it.supplier_name %></td>
+				<td><%= it.status %></td>
+				<td><%= it.ordered_at %></td>
+				<td><%= it.total_items %></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+</section>

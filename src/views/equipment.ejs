@@ -1,0 +1,23 @@
+<section class="card">
+	<h2><%= title %></h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Serial</th>
+				<th>Status</th>
+				<th>Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% items.forEach(it => { %>
+			<tr>
+				<td><%= it.name %></td>
+				<td><%= it.serial || '-' %></td>
+				<td><%= it.status %></td>
+				<td><%= it.location || '-' %></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+</section>

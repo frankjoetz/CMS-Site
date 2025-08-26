@@ -1,0 +1,21 @@
+<section class="card">
+	<h2><%= title %></h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Status</th>
+				<th>Due</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% items.forEach(it => { %>
+			<tr>
+				<td><strong><%= it.title %></strong><br><small class="muted"><%= it.description || '' %></small></td>
+				<td><%= it.status %></td>
+				<td><%= it.due_date || '-' %></td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+</section>
