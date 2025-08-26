@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+	<h3>Monthly Summary</h3>
+	<p>Trends of PO costs and deliveries.</p>
+</div>
+<div class="card" style="height:360px;">
+	<canvas id="monthly-chart"></canvas>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+const mctx = document.getElementById('monthly-chart');
+if (mctx) {
+	new Chart(mctx, { type: 'line', data: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], datasets: [{ label: 'PO Cost', data:[1000,800,1200,1500,900,1100], borderColor: '#f59e0b'}] }, options: { responsive: true, maintainAspectRatio: false } });
+}
+</script>
+{% endblock %}

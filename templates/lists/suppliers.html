@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-end mb-2"><a href="/suppliers/new" class="btn">New Supplier</a></div>
+<table class="table">
+	<thead><tr><th>Name</th><th>Email</th><th>Phone</th></tr></thead>
+	<tbody>
+		{% for s in suppliers %}
+		<tr><td>{{ s.name }}</td><td>{{ s.contact_email or '' }}</td><td>{{ s.contact_phone or '' }}</td></tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+	<h3>Daily Summary</h3>
+	<ul>
+		<li>Date: {{ (dayjs().format('YYYY-MM-DD')) if false }}</li>
+		<li>Open Pendings: <strong>{{ 0 }}</strong></li>
+		<li>Deliveries today: <strong>{{ 0 }}</strong></li>
+	</ul>
+</div>
+<div class="card" style="height:360px;">
+	<canvas id="daily-chart"></canvas>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+const ctx = document.getElementById('daily-chart');
+if (ctx) {
+	new Chart(ctx, { type: 'bar', data: { labels: ['00','04','08','12','16','20'], datasets: [{ label: 'Ops Load', data:[2,3,6,4,5,2], backgroundColor: '#a78bfa'}] }, options: { responsive: true, maintainAspectRatio: false } });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" class="card">
+	<div class="row">
+		<div>
+			<label>Name</label>
+			<input name="name" required>
+		</div>
+		<div>
+			<label>Email</label>
+			<input name="contact_email">
+		</div>
+		<div>
+			<label>Phone</label>
+			<input name="contact_phone">
+		</div>
+	</div>
+	<div class="mt-3">
+		<button class="btn" type="submit">Save</button>
+		<a href="/suppliers" class="btn secondary">Cancel</a>
+	</div>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-end mb-2"><a href="/products/new" class="btn">New Product</a></div>
+<table class="table">
+	<thead><tr><th>SKU</th><th>Name</th><th>Supplier</th><th>Cost</th><th>Price</th></tr></thead>
+	<tbody>
+		{% for p in products %}
+		<tr>
+			<td>{{ p.sku }}</td>
+			<td>{{ p.name }}</td>
+			<td>{{ p.supplier.name if p.supplier else '' }}</td>
+			<td>{{ p.cost_price|currency }}</td>
+			<td>{{ p.selling_price|currency }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
